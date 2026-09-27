@@ -47,14 +47,14 @@ pipeline {
                 sshagent(credentials: ['gce-ssh']) {
                     sh '''
                         echo "Deploying with systemd..."
-                        ssh -o StrictHostKeyChecking=no vidit4985@34.31.254.119 "mkdir -p /home/vidit4985/app"
-                        scp -o StrictHostKeyChecking=no -r * vidit4985@34.31.254.119:/home/vidit4985/app/
-                        ssh -o StrictHostKeyChecking=no vidit4985@34.31.254.119 "
+                        ssh -o StrictHostKeyChecking=no vidit4985@136.114.108.80 "mkdir -p /home/vidit4985/app"
+                        scp -o StrictHostKeyChecking=no -r * vidit4985@136.114.108.80:/home/vidit4985/app/
+                        ssh -o StrictHostKeyChecking=no vidit4985@136.114.108.80 "
                           sudo systemctl daemon-reload &&
                           sudo systemctl restart flaskapp &&
                           sudo systemctl enable flaskapp
                         "
-                        echo "Deployment complete. Check: curl http://34.31.254.119:8080"
+                        echo "Deployment complete. Check: curl http://136.114.108.80:8080"
                     '''
                 }
             }
